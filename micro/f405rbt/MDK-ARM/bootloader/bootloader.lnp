@@ -1,0 +1,18 @@
+--cpu=Cortex-M4.fp.sp
+"bootloader\startup_stm32f405xx.o"
+"bootloader\main.o"
+"bootloader\stm32f4xx_it.o"
+"bootloader\flash.o"
+"bootloader\modbus.o"
+"bootloader\stm32f4xx_ll_gpio.o"
+"bootloader\stm32f4xx_ll_crc.o"
+"bootloader\stm32f4xx_ll_rcc.o"
+"bootloader\stm32f4xx_ll_utils.o"
+"bootloader\stm32f4xx_ll_exti.o"
+"bootloader\stm32f4xx_ll_usart.o"
+"bootloader\stm32f4xx_ll_dma.o"
+"bootloader\system_stm32f4xx.o"
+--library_type=microlib --nodebug --strict --scatter "bootloader\bootloader.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "bootloader.map" -o bootloader\bootloader.axf
