@@ -60,12 +60,43 @@ Incorrect flash addresses or incompatible application linker settings may preven
 
 ## Getting Started
 
-1. Clone or download this repository.
-2. Open the firmware project in the supported STM32 development environment.
-3. Verify the MCU configuration and flash memory layout.
-4. Build the bootloader firmware.
-5. Configure the target hardware for the required serial communication interface.
-6. Use the compatible PC programming utility to communicate with the target.
+1. Design Your PCB
+
+Design your PCB with the required STM32 connections:
+
+USART3 TX on PC10
+
+USART3 RX on PC11
+
+Download control on PC13
+
+Ensure that the MCU, power supply, clock configuration, reset circuitry, and serial communication interface are correctly implemented.
+
+2. Program the Bootloader
+
+Program the provided bootloader firmware into the STM32 using an ST-Link or another supported initial programming method.
+
+This is the initial installation step required before using the PC programming utility.
+
+Make sure the bootloader is programmed to the correct flash address for your target configuration.
+
+3. Connect the PC Programmer
+
+Connect your PC to the target board through the supported serial communication interface.
+
+Launch the provided PC programming software and configure the communication parameters required by the bootloader.
+
+4. Upload Your Firmware
+
+Select your application firmware in the PC programming utility and start the programming process.
+
+The utility communicates with the bootloader using Modbus RTU and transfers the firmware to the target device.
+
+Follow the application's instructions and wait for the programming process to finish before disconnecting power or communication.
+
+5. Update Firmware in the Future
+
+After the initial bootloader installation, use the PC programming utility for subsequent firmware updates through the supported communication interface, without requiring a separate ST-Link programming operation for every update.
 
 Refer to the source code and project configuration for implementation-specific details.
 
